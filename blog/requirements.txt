@@ -7,3 +7,4 @@ drf-yasg
 cloudinary 
 django-cloudinary-storage
 Pillow
+gunicorn 
