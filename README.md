@@ -6,10 +6,11 @@ to visit deployment go to `https://blog-api-val0.onrender.com/` on your browser
 ##Setup local environment##
 To run the development server follow these steps (please take note to properly run the following commands on your terminal):
 
-1. **Create vertual environment (env)**: Start by creating a virtual environment using python venv package. Run `python -m venv env`
-2. **CD into blog directory**: run `cd/blog`
-3. **Install dependencies**: run `pip install -r requirements.txt`
-4. **Start development server**: run `py manage.py runserver` it should start a development server at `http://localhost:8000`
+1. **Create virtual environment (env)**: Start by creating a virtual environment using python venv package. Run `python -m venv env`
+2. **Activate virtual environment**: Activate the virtual environment by running this command `env/Scripts/activate`
+3. **CD into blog directory**: run `cd/blog`
+4. **Install dependencies**: run `pip install -r requirements.txt`
+5. **Start development server**: run `py manage.py runserver` it should start a development server at `http://localhost:8000`
 
 ## Access docs ##
 If your dev server is running visit `http://localhost:8000/docs` to access the swagger docs for the project. there you should see a list of all endpoints in the project
