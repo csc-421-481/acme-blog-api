@@ -5,7 +5,12 @@ from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .models import BlogUser
-from .serializers import BlogUserSerializer, LoginSerializer
+from .serializers import (
+    BlogUserSerializer,
+    LoginSerializer,
+    UpdateBlogUserSerializer,
+    UpdateBlogUserProfileImageSerializer,
+)
 from django.contrib.auth import authenticate
 from drf_yasg.utils import swagger_auto_schema
 from django.contrib.auth import get_user_model, authenticate, login, logout
@@ -42,7 +47,12 @@ class ListUsersView(generics.ListAPIView):
 
 class UpdateUserView(generics.UpdateAPIView):
     queryset = BlogUser.objects.all()
-    serializer_class = BlogUserSerializer
+    serializer_class = UpdateBlogUserSerializer
+
+
+class UpdateUserProfileImageView(generics.UpdateAPIView):
+    queryset = BlogUser.objects.all()
+    serializer_class = UpdateBlogUserProfileImageSerializer
 
 
 class DeleteUserView(generics.DestroyAPIView):

@@ -34,6 +34,18 @@ class BlogUserSerializer(serializers.ModelSerializer):
         return data
 
 
+class UpdateBlogUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogUser
+        fields = ["firstName", "lastName", "email", "matricNumber", "bio"]
+
+
+class UpdateBlogUserProfileImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogUser
+        fields = ["profileImage"]
+
+
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
