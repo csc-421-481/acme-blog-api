@@ -6,6 +6,7 @@ class BlogUser(AbstractUser):
     firstName = models.CharField(max_length=30)
     lastName = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
+    isTeamMember = models.BooleanField(default=False)
     matricNumber = models.CharField(max_length=20, unique=True)
     bio = models.TextField(blank=True, null=True)
     # USERNAME_FIELD = "email"  # Use email as the unique identifier

@@ -13,6 +13,7 @@ class BlogUserSerializer(serializers.ModelSerializer):
             "profileImage",
             "firstName",
             "lastName",
+            "isTeamMember",
             "email",
             "matricNumber",
             "password",
@@ -37,7 +38,14 @@ class BlogUserSerializer(serializers.ModelSerializer):
 class UpdateBlogUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogUser
-        fields = ["firstName", "lastName", "email", "matricNumber", "bio"]
+        fields = [
+            "firstName",
+            "lastName",
+            "email",
+            "matricNumber",
+            "isTeamMember",
+            "bio",
+        ]
 
 
 class UpdateBlogUserProfileImageSerializer(serializers.ModelSerializer):
