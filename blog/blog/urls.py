@@ -22,6 +22,7 @@ urlpatterns = [
         include("users.urls"),
     ),
     path("testing/", include("testing.urls")),
+    path("posts/", include("posts.urls")),
     path(
         "docs/",
         schema_view.with_ui("swagger", cache_timeout=0),

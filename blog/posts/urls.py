@@ -1,0 +1,55 @@
+from django.urls import path, include
+from . import views
+
+urlpatterns = [
+    path(
+        "",
+        views.ListPostsView.as_view(),
+        name="list-posts",
+    ),
+    path(
+        "user/<int:user_id>",
+        views.ListUserPostsView.as_view(),
+        name="list-user-posts",
+    ),
+    path(
+        "create",
+        views.CreatePostView.as_view(),
+        name="Create-post",
+    ),
+    path(
+        "<int:pk>",
+        views.RetrievePostView.as_view(),
+        name="retrieve-post",
+    ),
+    path(
+        "update/<int:pk>",
+        views.UpdatePostView.as_view(),
+        name="update-post",
+    ),
+    path(
+        "delete/<int:pk>",
+        views.DestroyPostView.as_view(),
+        name="delete-post",
+    ),
+    path(
+        "categories",
+        views.CreateAndListCategoryView.as_view(),
+        name="retrieve-update-destroy-category",
+    ),
+    path(
+        "categories/<int:pk>",
+        views.RetrieveUpdateDestroyCategoryView.as_view(),
+        name="retrieve-update-destroy-category",
+    ),
+    path(
+        "comments/<int:post_id>",
+        views.RetrieveCommentsByPostView.as_view(),
+        name="list-comments-by-posts",
+    ),
+    path(
+        "comments/create",
+        views.CreateCommentByPostView.as_view(),
+        name="create-comment",
+    ),
+]

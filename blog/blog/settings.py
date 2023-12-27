@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # apps
     "testing",
     "users",
+    "posts",
 ]
 
 REST_FRAMEWORK = {
