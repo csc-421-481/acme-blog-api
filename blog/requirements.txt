@@ -8,3 +8,5 @@ cloudinary
 django-cloudinary-storage
 Pillow
 gunicorn 
+python-decouple
+dj-database-url
