@@ -10,3 +10,4 @@ Pillow
 gunicorn 
 python-decouple
 dj-database-url
+psycopg2
