@@ -16,6 +16,8 @@ class Post(models.Model):
         upload_to="csc-421-blog/posts/cover-images", null=True, blank=True
     )
     content = models.TextField()
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
     # REQUIRED_FIELDS = ["title", "coverImage"]
 
 
