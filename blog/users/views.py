@@ -1,4 +1,6 @@
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics, permissions
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -21,6 +23,13 @@ class CreateAccountView(generics.CreateAPIView):
     serializer_class = BlogUserSerializer
     permission_classes = [permissions.AllowAny]
 
+    @swagger_auto_schema(
+        request_body=BlogUserSerializer,
+        parser_classes=[MultiPartParser, FormParser],
+        consumes=["multipart/form-data"],  # Specify the content type
+        operation_description="Create user account",
+        operation_summary="Create user account",
+    )
     def perform_create(self, serializer):
         user = serializer.save()
         token, created = Token.objects.get_or_create(user=user)
@@ -43,6 +52,18 @@ class GetUserView(generics.RetrieveAPIView):
 class ListUsersView(generics.ListAPIView):
     queryset = BlogUser.objects.all()
     serializer_class = BlogUserSerializer
+
+
+class ListTeamMembersView(generics.ListAPIView):
+    serializer_class = BlogUserSerializer
+    queryset = BlogUser.objects.filter(isTeamMember=True)
+
+    @swagger_auto_schema(
+        operation_description="Get all team members",
+        operation_summary="Get all team members",
+    )
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
 
 class UpdateUserView(generics.UpdateAPIView):
