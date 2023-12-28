@@ -9,6 +9,9 @@ class BlogUser(AbstractUser):
     isTeamMember = models.BooleanField(default=False)
     matricNumber = models.CharField(max_length=20, unique=True)
     bio = models.TextField(blank=True, null=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    updatedAt = models.DateTimeField(auto_now=True)
+
     # USERNAME_FIELD = "email"  # Use email as the unique identifier
     profileImage = models.ImageField(
         upload_to="csc-421-blog/users/", null=True, blank=True

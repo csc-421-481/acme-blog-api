@@ -1,11 +1,14 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
+from posts.models import Post
 
 from .models import BlogUser
 
 
 class BlogUserSerializer(serializers.ModelSerializer):
+    posts_count = serializers.SerializerMethodField()
+
     class Meta:
         model = BlogUser
         fields = (
@@ -18,8 +21,14 @@ class BlogUserSerializer(serializers.ModelSerializer):
             "matricNumber",
             "password",
             "bio",
+            "createdAt",
+            "updatedAt",
+            "posts_count",
         )
         extra_kwargs = {"password": {"write_only": True}}
+
+    def get_posts_count(self, user):
+        return Post.objects.filter(user=user).count()
 
     def create(self, validated_data):
         user = BlogUser.objects.create_user(**validated_data)
