@@ -91,6 +91,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3003",
     "http://localhost:3004",
     "https://acme-blog.vercel.app",
+    "https://modelminds.com.ng",
 ]
 
 # CORS_ALLOW_ALL_ORIGINS: True
