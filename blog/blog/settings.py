@@ -84,7 +84,7 @@ ROOT_URLCONF = "blog.urls"
 
 # CORS_URLS_REGEX = r"^/users/.*"
 
-CORS_ALLOWED_DOMAINS = [
+CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3002",
@@ -92,7 +92,9 @@ CORS_ALLOWED_DOMAINS = [
     "http://localhost:3004",
     "https://acme-blog.vercel.app",
     "https://www.modelminds.com.ng",
+    "http://www.modelminds.com.ng",
     "https://modelminds.com.ng",
+    "http://modelminds.com.ng",
 ]
 
 # CORS_ALLOW_ALL_ORIGINS: True
