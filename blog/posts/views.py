@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from . import serializers, models
 from rest_framework import generics
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 
 class CreateAndListCategoryView(generics.ListCreateAPIView):
@@ -18,6 +20,7 @@ class ListPostsView(generics.ListAPIView):
     serializer_class = serializers.PostDetailsSerializer
 
 
+@method_decorator(cache_page(0), name="dispatch")  # 0 seconds means no caching
 class ListUserPostsView(generics.ListAPIView):
     serializer_class = serializers.PostDetailsSerializer
 
